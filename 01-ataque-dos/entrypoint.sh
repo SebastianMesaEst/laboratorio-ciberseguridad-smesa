@@ -27,5 +27,8 @@ echo ""
 echo "[DoS] Simulación finalizada."
 echo "[DoS] El servidor objetivo no debe haber sido saturado."
 
-echo "[INFO] Iniciando servicio de consulta de logs..."
-python3 -m http.server "${PORT:-10000}" --bind 0.0.0.0
+echo "[INFO] Iniciando servicio de estado..."
+
+mkdir -p /tmp/empty
+
+python3 -m http.server "${PORT:-10000}" --bind 0.0.0.0 --directory /tmp/empty
